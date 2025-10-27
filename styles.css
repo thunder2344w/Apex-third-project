@@ -1,0 +1,129 @@
+/* --- Global Styles --- */
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --background-color: #f8f8f8;
+}
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    background-color: var(--background-color);
+    color: #333;
+    line-height: 1.6;
+}
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+h2 { color: var(--primary-color); }
+
+/* --- Responsive Layout (Default: Desktop/Grid) --- */
+.content-wrapper {
+    display: grid;
+    /* Two equal columns for desktop layout */
+    grid-template-columns: 1fr 1fr; 
+    gap: 30px;
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+section {
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* --- API Section Styling --- */
+.data-card {
+    background-color: #ecf0f1;
+    border-left: 5px solid var(--secondary-color);
+    padding: 15px;
+    margin-bottom: 15px;
+    font-style: italic;
+    min-height: 80px; /* Keep container from jumping */
+}
+#fetch-quote-btn {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+#fetch-quote-btn:hover { background-color: #27ae60; }
+
+/* --- Carousel Styling (Complex Layout) --- */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.image-slides {
+    display: flex; /* Flexbox is essential here */
+    transition: transform 0.5s ease-in-out;
+}
+.image-slides img {
+    width: 100%;
+    flex-shrink: 0; /* Prevents images from shrinking */
+    display: block;
+    height: auto;
+}
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 1.5em;
+    z-index: 10;
+}
+.prev-btn { left: 10px; }
+.next-btn { right: 10px; }
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #34495e;
+    color: white;
+    margin-top: 30px;
+}
+
+/* ================================================= */
+/* --- MEDIA QUERIES (Objective: Apply Responsive Design) --- */
+/* ================================================= */
+
+/* Tablet Layout (Max Width 992px) */
+@media (max-width: 992px) {
+    .content-wrapper {
+        /* Reduce gap and make columns slightly narrower */
+        gap: 20px;
+        grid-template-columns: minmax(300px, 1fr) 1fr;
+    }
+}
+
+/* Mobile Layout (Max Width 600px) */
+@media (max-width: 600px) {
+    /* Stack layout vertically for mobile */
+    .content-wrapper {
+        grid-template-columns: 1fr; /* Single column layout */
+        padding: 0 15px;
+    }
+    
+    /* Adjust font size for better readability on small screens */
+    h1 {
+        font-size: 1.8em;
+    }
+    h2 {
+        font-size: 1.4em;
+    }
+}
